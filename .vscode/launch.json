@@ -1,0 +1,13 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "admin-panel",
+            "type": "python",
+            "request": "launch",
+            "module": "frontend",
+            "envFile": "${workspaceFolder}/.env",
+            "console": "internalConsole",
+        }
+    ]
+}

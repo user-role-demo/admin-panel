@@ -1,0 +1,18 @@
+<table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Users</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for i in range(roles | length) %}
+            <tr>
+                <th scope="row">{{  i + 1  }}</th>
+                <td><h6>{{ roles[i].name }}</h6></td>
+                <td>{{ roles[i].users }}</td>
+            </tr>            
+        {% endfor %}                
+    </tbody>
+</table>

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<html>
+  <body>
+    <div class="row">
+        <div class="col-6">
+            <h4>Roles:</h4>
+            {% include 'role_table.html' %}
+            <form action="{{ url_for('index.index') }}" method="post">
+                {{ role_form.hidden_tag() }}
+                <div class="form-group">
+                  {{ role_form.name.label }}
+                  {{ role_form.name() }}
+                </div>
+                <p></p>
+                {{ role_form.submit }}
+            </form>
+        </div>
+    </div>
+  </body>
+</html>
+{% endblock %}
