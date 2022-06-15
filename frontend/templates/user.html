@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block content %}
+<html>
+  <body>
+    <div class="row">
+        <div class="col-4">
+        </div>
+        <div class="col-4">
+            <h5>User {{ user.name }}</h5><p></p>
+            <h6>User id: {{ user.uid }}</h6>
+            <h6>Assigned roles: {{ added_roles }}</h6>
+            <form method="post">
+                {{ update_form.hidden_tag() }}
+                <div class="form-group">
+                  {{ update_form.name.label }}
+                  {{ update_form.name() }}
+                </div>
+                <p></p>
+                {{ update_form.submit }}
+            </form>
+            <p></p>
+            <form method="post">
+                {{ delete_form.hidden_tag() }}
+                {{ delete_form.submit }}
+            </form>
+            <p></p>
+            <form method="post">
+                {{ add_role_form.hidden_tag() }}
+                <div class="form-group">
+                  {{ add_role_form.role_select.label }}
+                  {{ add_role_form.role_select() }}
+                </div>
+                <p></p>
+                {{ add_role_form.submit }}
+            </form>
+            <p></p>
+            <form method="post">
+                {{ remove_role_form.hidden_tag() }}
+                <div class="form-group">
+                  {{ remove_role_form.role_select.label }}
+                  {{ remove_role_form.role_select() }}
+                </div>
+                <p></p>
+                {{ remove_role_form.submit }}
+            </form>
+        </div>
+        <div class="col-4">
+        </div>
+    </div>
+  </body>
+</html>
+{% endblock %}

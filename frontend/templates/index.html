@@ -4,10 +4,24 @@
 <html>
   <body>
     <div class="row">
-        <div class="col-6">
+        <div class="col-4">
+            <h4>Users:</h4>
+            <form method="post">
+                {{ user_form.hidden_tag() }}
+                <div class="form-group">
+                  {{ user_form.name.label }}
+                  {{ user_form.name() }}
+                </div>
+                <p></p>
+                {{ user_form.submit }}
+            </form>
+            <p></p>
+            {% include 'user_table.html' %}
+        </div>
+        <div class="col-2"></div>
+        <div class="col-4">
             <h4>Roles:</h4>
-            {% include 'role_table.html' %}
-            <form action="{{ url_for('index.index') }}" method="post">
+            <form method="post">
                 {{ role_form.hidden_tag() }}
                 <div class="form-group">
                   {{ role_form.name.label }}
@@ -16,6 +30,8 @@
                 <p></p>
                 {{ role_form.submit }}
             </form>
+            <p></p>
+            {% include 'role_table.html' %}
         </div>
     </div>
   </body>

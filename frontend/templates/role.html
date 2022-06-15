@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<html>
+  <body>
+    <div class="row">
+        <div class="col-4">
+        </div>
+        <div class="col-4">
+            <h5>Role {{ role.name }}</h5><p></p>
+            <h6>Role id: {{ role.uid }}</h6>
+            <form method="post">
+                {{ update_form.hidden_tag() }}
+                <div class="form-group">
+                  {{ update_form.name.label }}
+                  {{ update_form.name() }}
+                </div>
+                <p></p>
+                {{ update_form.submit }}
+            </form>
+            <p></p>
+            <form method="post">
+                {{ delete_form.hidden_tag() }}
+                {{ delete_form.submit }}
+            </form>
+        </div>
+        <div class="col-4">
+        </div>
+    </div>
+  </body>
+</html>
+{% endblock %}

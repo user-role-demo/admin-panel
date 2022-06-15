@@ -3,17 +3,15 @@
       <tr>
         <th scope="col">#</th>
         <th scope="col">Name</th>
-        <th scope="col">Users</th>
       </tr>
     </thead>
     <tbody>
-        {% for i in range(roles | length) %}
+        {% for i in range(users | length) %}
             <tr>
                 <th scope="row">{{  i + 1  }}</th>
                 <td>
-                  <h6><a href="{{ url_for('roles.role', uid=roles[i].uid) }}" >{{ roles[i].name }}</a></h6>
+                  <h6><a href="{{ url_for('users.user', uid=users[i].uid) }}" >{{ users[i].name }}</a></h6>
                 </td>
-                <td>{{ roles[i].users }}</td>
             </tr>            
         {% endfor %}                
     </tbody>
