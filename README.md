@@ -7,18 +7,32 @@
 ```bash
 pip install poetry
 poetry config virtualenvs.in-project true
-source .env\Scripts\activate
 ```
 
 ### For each projet
 
+Prepare virtual environment:
 ```bash
 poetry init
 poetry install
 ```
+Activate virtual environment:
+```bash
+source .venv\Scripts\activate
+```
+Prepare .env file as specified in .env.default
+Export environment variables:
+```bash
+export $(grep -v '^#' .env | xargs)
+```
 
 ## Usage
 
+Run:
+```bash
+python -m frontend
+```
+Or use make utility:
 ```bash
 make run
 ```
