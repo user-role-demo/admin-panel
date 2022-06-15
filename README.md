@@ -18,9 +18,9 @@ poetry install
 ```
 Activate virtual environment:
 ```bash
-source .venv\Scripts\activate
+source .venv/bin/activate
 ```
-Prepare .env file as specified in .env.default
+Prepare .env file as specified in .env.default<br/>
 Export environment variables:
 ```bash
 export $(grep -v '^#' .env | xargs)
