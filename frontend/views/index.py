@@ -7,7 +7,7 @@ from frontend.forms.users import CreateUserForm
 view = Blueprint('index', __name__)
 
 
-@view.route('/', methods=['GET', 'POST'])
+@view.route('/')
 def index():
     users = client.users.get_all()
 
@@ -21,14 +21,7 @@ def index():
         roles_with_users.append(role_with_users)
 
     user_form = CreateUserForm()
-    if user_form.validate_on_submit():
-        if user_form.create_user():
-            return redirect(url_for('index.index'))
-
     role_form = CreateRoleForm()
-    if role_form.validate_on_submit():
-        if role_form.create_role():
-            return redirect(url_for('index.index'))
 
     return render_template(
         'index.html',
@@ -38,3 +31,19 @@ def index():
         role_form=role_form,
         page_title='User-Role demo',
     )
+
+
+@view.route('/add_user', methods=['POST'])
+def add_user():
+    user_form = CreateUserForm()
+    if user_form.validate_on_submit():
+        if user_form.create_user():
+            return redirect(url_for('index.index'))
+
+
+@view.route('/add_role', methods=['POST'])
+def add_role():
+    role_form = CreateRoleForm()
+    if role_form.submit.data and role_form.validate():
+        if role_form.create_role():
+            return redirect(url_for('index.index'))
